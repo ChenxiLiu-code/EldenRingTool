@@ -1,0 +1,46 @@
+{
+  "schema": 2,
+  "reviewed": "2026-09-19",
+  "sources": [
+    "https://eldenring.wiki.gg/wiki/Ensha",
+    "https://www.rpgsite.net/feature/12489-elden-ring-stargazers-ruins-seal-how-to-help-the-stargazer-jellyfish-and-solve-the-puzzle",
+    "https://www.bandainamcoent.com/news/elden-ring-patch-notes-version-1-17",
+    "https://www.pcgamer.com/games/rpg/elden-ring-tarnished-edition-weapons-armor/"
+  ],
+  "quests": [
+    {
+      "id": "ensha", "pack": "base", "name": {"zh": "王骸恩夏", "en": "Ensha of the Royal Remains"}, "character": "恩夏",
+      "steps": [
+        {"id": "gesture", "guideOnly": true, "optional": true, "title": "先取得肢体动作", "action": "在圆桌厅堂、百智爵士书房门外与恩夏互动。取得圣树秘密符节之前先完成，入侵后无法再从他处获得。", "reward": "肢体动作：有何贵干"},
+        {"id": "medallion", "guideOnly": true, "title": "从白金村取得秘密符节", "action": "在利耶尼亚白金村找到伪装成罐子的艾尔帕斯，交谈取得圣树秘密符节（右）。"},
+        {"id": "invasion", "guideOnly": true, "title": "返回圆桌厅堂迎战恩夏", "action": "取得符节后返回圆桌厅堂，击败入侵的恩夏。", "reward": "攀附手骨"},
+        {"id": "remains", "guideOnly": true, "title": "回收门外的王骸套装", "action": "恢复正常的圆桌厅堂后，到恩夏原先站立的书房门外拾取装备；可向百智爵士询问袭击。", "reward": "王骸套装"}
+      ]
+    },
+    {
+      "id": "jellyfish_sisters", "pack": "base", "name": {"zh": "观星废墟的水母姐妹", "en": "Stargazers' Ruins Jellyfish Sisters"}, "character": "奥蕾莉亚与奥蕾莉耶特",
+      "steps": [
+        {"id": "ashes", "guideOnly": true, "title": "向罗德莉卡取得灵魂水母骨灰", "action": "在风暴山丘破屋与罗德莉卡反复交谈；若她已前往圆桌厅堂，再与她交谈取得。", "reward": "灵魂水母的骨灰"},
+        {"id": "reunion", "guideOnly": true, "title": "在观星废墟召唤水母", "action": "前往巨人山顶的观星废墟，在呼唤姐姐的水母旁召唤灵魂水母，等待对话结束、地下室封印解除。", "anchor": {"marker": "poi:65515600"}, "reward": "肢体动作：转圈"},
+        {"id": "chest", "guideOnly": true, "title": "领取地下室宝箱", "action": "进入废墟地下室，打开宝箱。姐妹团聚不会消耗你的骨灰。", "anchor": {"marker": "poi:65515600"}, "reward": "源辉石刀"}
+      ]
+    },
+    {
+      "id": "tarnished_leontiel", "pack": "tarnished", "name": "里翁提耶入侵", "character": "里翁提耶",
+      "steps": [
+        {"id": "radahn", "guideOnly": true, "title": "击败碎星拉塔恩", "action": "需要褪色者礼包。先完成盖利德红狮子城的战斗祭典并击败碎星拉塔恩。", "anchor": {"marker": "grace:64523800"}},
+        {"id": "invasion", "guideOnly": true, "title": "前往战场北侧迎战里翁提耶", "action": "从碎星拉塔恩赐福向北、朝英灵地下墓地方向前进，触发并击败入侵者，领取装备。", "anchor": {"marker": "grace:64523800"}, "reward": "里翁提耶的大剑、里翁提耶套装"}
+      ]
+    },
+    {
+      "id": "tarnished_broken_goldmask", "pack": "tarnished", "name": "破碎金面具入侵", "character": "破碎金面具",
+      "steps": [
+        {"id": "regression", "guideOnly": true, "title": "准备回归性原理", "action": "需要褪色者礼包。取得黄金律法原本，交给结缘教堂的米利耶或柯林后学习回归性原理，并满足施法条件。"},
+        {"id": "invasion", "guideOnly": true, "title": "在拉达冈雕像前触发入侵", "action": "从王城黄金树大教堂向外下楼、乘升降梯，到拉达冈雕像前施放回归性原理，揭示秘密后迎战入侵者。务必在王城化为灰城之前完成。", "anchor": {"marker": "grace:110001"}, "reward": "黄金律法连枷、破碎金面具、黄金文身套装"}
+      ],
+      "lockouts": [
+        {"id": "ashen_capital", "severity": "warning", "affects": ["invasion"], "triggerWhen": {"marker": "boss:13000800"}, "text": "击败黑剑玛利喀斯后王城变为灰城，这场入侵将无法触发；本周目请先收取奖励。"}
+      ]
+    }
+  ]
+}

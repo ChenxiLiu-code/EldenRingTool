@@ -1,0 +1,2193 @@
+{
+  "schema": 2,
+  "coverage": {
+    "en": "Shadow of the Erdtree NPC quest coverage. Reliable map/boss/item milestones are automatic; dialogue, reward choices and branches without a safe single save flag are non-blocking guide steps.",
+    "zh": "《黄金树幽影》NPC任务补全。可靠的地图/Boss/物品里程碑自动判定；无法安全由单一存档Flag确定的对白、奖励选择与分支以不阻塞进度的“指南步骤”显示。"
+  },
+  "quests": [
+    {
+      "id": "leda",
+      "pack": "dlc",
+      "group": "major",
+      "name": {
+        "en": "Needle Knight Leda",
+        "zh": "“金针骑士”蕾妲"
+      },
+      "character": {
+        "en": "Needle Knight Leda",
+        "zh": "蕾妲"
+      },
+      "steps": [
+        {
+          "id": "highroad",
+          "title": {
+            "en": "Meet Leda after Rellana",
+            "zh": "击败蕾菈娜后与蕾妲会合"
+          },
+          "action": {
+            "en": "After Rellana, exhaust Leda at Highroad Cross.",
+            "zh": "击败蕾菈娜后，在大道旁的十字记号与蕾妲说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:69484500"
+          },
+          "completeWhen": {
+            "marker": "boss:2048440800"
+          }
+        },
+        {
+          "id": "charm_break",
+          "title": {
+            "en": "Return after Miquella’s charm breaks",
+            "zh": "魅惑破除后返回交谈"
+          },
+          "action": {
+            "en": "Approaching Shadow Keep (or the eastern route beyond Bonny Village) breaks the Great Rune/charm. Return to Highroad Cross and exhaust Leda.",
+            "zh": "靠近幽影城（或从波尼村东侧路线推进）会触发大卢恩/魅惑破除。随后回大道旁十字记号与蕾妲说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:69484500"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "target",
+          "title": {
+            "en": "Hear Leda choose Hornsent as her target",
+            "zh": "确认蕾妲将角人视为目标"
+          },
+          "action": {
+            "en": "Suggesting Thiollier, Hornsent, or no one does not create the decisive branch; after reloading, Leda ultimately focuses on Hornsent.",
+            "zh": "无论建议提议休里耶、角人或不提议，这里都不是决定性分支；刷新后蕾妲最终会把目标转向角人。"
+          },
+          "anchor": {
+            "marker": "grace:69484500"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "hornsent_help_leda",
+          "title": {
+            "en": "Help Leda against Hornsent",
+            "zh": "协助蕾妲对付角人"
+          },
+          "action": {
+            "en": "Use Leda’s red sign in Shadow Keep. Hornsent dies; later speak to Leda for Lacerating Crossed-Tree.",
+            "zh": "在幽影城选择蕾妲的红色召唤记号。角人死亡；之后再与蕾妲交谈可获得贯刺交错树。"
+          },
+          "anchor": {
+            "marker": "poi:210000"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Leda / Hornsent branch",
+            "zh": "蕾妲 / 角人分支：协助蕾妲"
+          },
+          "reward": {
+            "en": "Hornsent set + Falx; Lacerating Crossed-Tree",
+            "zh": "角人套装 + 法尔克斯；贯刺交错树"
+          },
+          "exclusiveGroup": "leda_hornsent_choice",
+          "exclusiveOption": "leda"
+        },
+        {
+          "id": "hornsent_help_hornsent",
+          "title": {
+            "en": "Help Hornsent against Leda",
+            "zh": "协助角人对付蕾妲"
+          },
+          "action": {
+            "en": "Use Hornsent’s gold sign. Hornsent survives and you receive Swift Slash + Leda’s Rune; this changes Leda’s later route.",
+            "zh": "选择角人的金色召唤记号。角人存活，可获得迅斩 + 蕾妲卢恩，并改变蕾妲后续路线。"
+          },
+          "anchor": {
+            "marker": "poi:210000"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Leda / Hornsent branch",
+            "zh": "蕾妲 / 角人分支：协助角人"
+          },
+          "reward": {
+            "en": "Ash of War: Swift Slash + Leda’s Rune",
+            "zh": "战灰：迅斩 + 蕾妲的卢恩"
+          },
+          "exclusiveGroup": "leda_hornsent_choice",
+          "exclusiveOption": "hornsent"
+        },
+        {
+          "id": "hornsent_skip",
+          "title": {
+            "en": "Skip the Hornsent signs",
+            "zh": "跳过角人双方召唤记号"
+          },
+          "action": {
+            "en": "You may also ignore both signs. Hornsent/Leda progression then depends on whether Hornsent is summoned for Messmer.",
+            "zh": "也可以不碰双方召唤记号；之后蕾妲/角人的推进会与是否在梅瑟莫战召唤角人有关。"
+          },
+          "anchor": {
+            "marker": "poi:210000"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Skip branch",
+            "zh": "跳过分支"
+          },
+          "exclusiveGroup": "leda_hornsent_choice",
+          "exclusiveOption": "skip"
+        },
+        {
+          "id": "ansbach_help_leda",
+          "title": {
+            "en": "Help Leda against Ansbach",
+            "zh": "协助蕾妲对付安帕赫"
+          },
+          "action": {
+            "en": "If this confrontation appears at Storehouse First Floor, taking Leda’s red sign kills Ansbach.",
+            "zh": "若安帕赫对决分支在保藏库一楼出现，选择蕾妲红符会杀死安帕赫。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Leda / Ansbach branch",
+            "zh": "蕾妲 / 安帕赫分支：协助蕾妲"
+          },
+          "reward": {
+            "en": "Ansbach set/Longbow route; Retaliatory Crossed-Tree from Leda",
+            "zh": "安帕赫套装/长弓路线；之后从蕾妲处获得回击交错树"
+          },
+          "exclusiveGroup": "leda_ansbach_choice",
+          "exclusiveOption": "leda"
+        },
+        {
+          "id": "ansbach_help_ansbach",
+          "title": {
+            "en": "Help Ansbach against Leda",
+            "zh": "协助安帕赫对付蕾妲"
+          },
+          "action": {
+            "en": "Take Ansbach’s gold sign to preserve his endgame summons; this grants Ansbach’s Longbow and Leda’s Rune.",
+            "zh": "选择安帕赫金符可保留他在终局的协助；可获得安帕赫的长弓与蕾妲的卢恩。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Leda / Ansbach branch",
+            "zh": "蕾妲 / 安帕赫分支：协助安帕赫"
+          },
+          "reward": {
+            "en": "Ansbach’s Longbow + Leda’s Rune",
+            "zh": "安帕赫的长弓 + 蕾妲的卢恩"
+          },
+          "exclusiveGroup": "leda_ansbach_choice",
+          "exclusiveOption": "ansbach"
+        },
+        {
+          "id": "enir",
+          "title": {
+            "en": "Face Leda and Miquella’s followers",
+            "zh": "在恩希尔·伊利姆终局对决蕾妲一行"
+          },
+          "action": {
+            "en": "After burning the Sealing Tree, progress through Enir-Ilim and resolve the Miquella’s Followers battle.",
+            "zh": "烧毁封印树后推进恩希尔·伊利姆，在净身厅前室之后解决米凯拉追随者群战。"
+          },
+          "anchor": {
+            "marker": "grace:200105"
+          },
+          "completeWhen": {
+            "marker": "boss:20010850"
+          },
+          "reward": {
+            "en": "Leda’s Sword and armor after the battle",
+            "zh": "战后可取得蕾妲之剑与防具"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61454200"
+          },
+          {
+            "marker": "grace:61464200"
+          },
+          {
+            "marker": "grace:61484300"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "hornsent_signs",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:210100"
+          },
+          "affects": [
+            "hornsent_help_leda",
+            "hornsent_help_hornsent"
+          ],
+          "text": {
+            "en": "Resolve the Leda/Hornsent summon signs before entering/fighting Messmer if you want their mutually-exclusive rewards; advancing Messmer can remove the choice.",
+            "zh": "如果要拿蕾妲/角人的互斥奖励，应在进入/推进梅瑟莫战前处理双方召唤记号；继续推进梅瑟莫可能令该选择消失。"
+          }
+        },
+        {
+          "id": "leda_ansbach",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:200102"
+          },
+          "affects": [
+            "ansbach_help_leda",
+            "ansbach_help_ansbach"
+          ],
+          "text": {
+            "en": "Resolve any Leda/Ansbach confrontation in the Storehouse before the Sealing Tree/Enir-Ilim transition.",
+            "zh": "若保藏库出现蕾妲/安帕赫对决，应在烧毁封印树、进入恩希尔·伊利姆前处理。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "hornsent",
+      "pack": "dlc",
+      "group": "major",
+      "name": {
+        "en": "Hornsent",
+        "zh": "角人"
+      },
+      "character": {
+        "en": "Hornsent",
+        "zh": "角人"
+      },
+      "steps": [
+        {
+          "id": "threepath",
+          "title": {
+            "en": "Meet Hornsent at Three-Path Cross",
+            "zh": "在三叉口遇见角人"
+          },
+          "action": {
+            "en": "Exhaust his dialogue and receive his first cross information.",
+            "zh": "与角人说完对白，取得第一批十字记号相关信息。"
+          },
+          "anchor": {
+            "marker": "grace:61464200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "highroad",
+          "title": {
+            "en": "Meet him at Highroad Cross",
+            "zh": "在大道旁十字记号再次交谈"
+          },
+          "action": {
+            "en": "After Rellana, exhaust Hornsent at Highroad Cross before the charm breaks.",
+            "zh": "击败蕾菈娜后，在魅惑破除前尽量先与大道旁十字记号的角人说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:69484500"
+          },
+          "completeWhen": {
+            "marker": "boss:2048440800"
+          }
+        },
+        {
+          "id": "stew",
+          "title": {
+            "en": "Offer Scorpion Stew if desired",
+            "zh": "可选：交给角人蝎子煲"
+          },
+          "action": {
+            "en": "If you obtained Scorpion Stew from the Grandam, you can give it to Hornsent for extra dialogue/reward interaction.",
+            "zh": "若已从角人老妪取得蝎子煲，可交给角人触发额外对白/奖励互动。"
+          },
+          "anchor": {
+            "marker": "grace:69484500"
+          },
+          "guideOnly": true,
+          "optional": true
+        },
+        {
+          "id": "revenge",
+          "title": {
+            "en": "Talk after the charm breaks",
+            "zh": "魅惑破除后确认复仇目标"
+          },
+          "action": {
+            "en": "Return after the Great Rune/charm breaks; Hornsent leaves for Shadow Keep to pursue Messmer.",
+            "zh": "大卢恩/魅惑破除后返回交谈，角人将前往幽影城追杀梅瑟莫。"
+          },
+          "anchor": {
+            "marker": "grace:69484500"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "leda_branch",
+          "title": {
+            "en": "Choose Hornsent or Leda in Shadow Keep",
+            "zh": "在幽影城选择角人或蕾妲"
+          },
+          "action": {
+            "en": "Gold sign preserves Hornsent and grants Swift Slash + Leda’s Rune; red sign kills Hornsent and ends this route.",
+            "zh": "金符协助角人可使其存活并获得迅斩 + 蕾妲卢恩；红符协助蕾妲会杀死角人并结束该路线。"
+          },
+          "anchor": {
+            "marker": "poi:210000"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Mutually exclusive",
+            "zh": "互斥分支"
+          }
+        },
+        {
+          "id": "messmer",
+          "title": {
+            "en": "Summon Hornsent for Messmer if preserving his route",
+            "zh": "若继续角人路线，可在梅瑟莫战召唤他"
+          },
+          "action": {
+            "en": "His summon is inside the arena and affects some later Leda/Hornsent outcomes.",
+            "zh": "其召唤记号位于梅瑟莫 Boss 场内；是否召唤会影响部分后续走向。"
+          },
+          "anchor": {
+            "marker": "grace:210100"
+          },
+          "guideOnly": true,
+          "optional": true
+        },
+        {
+          "id": "rauh",
+          "title": {
+            "en": "Resolve Hornsent’s later Rauh outcome",
+            "zh": "在劳弗古遗迹处理角人最终结果"
+          },
+          "action": {
+            "en": "On the continuing revenge route Hornsent can later confront/invade you in Ancient Ruins of Rauh; defeat him to obtain his equipment if that branch occurs.",
+            "zh": "在继续复仇的路线中，角人之后可能在劳弗古遗迹与你敌对/入侵；若该分支出现，击败他可取得其装备。"
+          },
+          "anchor": {
+            "marker": "grace:69464700"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Surviving Hornsent route",
+            "zh": "角人存活路线"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61454200"
+          },
+          {
+            "marker": "grace:61464200"
+          },
+          {
+            "marker": "grace:61484300"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "hornsent_messmer",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:210100"
+          },
+          "affects": [
+            "leda_branch",
+            "messmer"
+          ],
+          "text": {
+            "en": "The Hornsent/Leda sign choice and Hornsent’s Messmer interaction are time-sensitive. Decide before progressing past Messmer.",
+            "zh": "角人与蕾妲的召唤符选择、以及梅瑟莫战中的角人互动具有时限；推进越过梅瑟莫前先决定。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false
+    },
+    {
+      "id": "ansbach",
+      "pack": "dlc",
+      "group": "major",
+      "name": {
+        "en": "Sir Ansbach",
+        "zh": "老兵安帕赫"
+      },
+      "character": {
+        "en": "Sir Ansbach",
+        "zh": "安帕赫"
+      },
+      "steps": [
+        {
+          "id": "main_gate",
+          "title": {
+            "en": "Meet Ansbach at Main Gate Cross",
+            "zh": "在正门前方十字记号遇见安帕赫"
+          },
+          "action": {
+            "en": "Exhaust his dialogue about Mohg, Miquella and the crosses.",
+            "zh": "与安帕赫说完关于蒙格、米凯拉与十字记号的对白。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "post_charm",
+          "title": {
+            "en": "Return after the charm breaks",
+            "zh": "魅惑破除后回去交谈"
+          },
+          "action": {
+            "en": "Talk to Ansbach again after Miquella’s charm breaks.",
+            "zh": "米凯拉魅惑破除后，再回正门前方十字记号与安帕赫交谈。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "storehouse",
+          "title": {
+            "en": "Find Ansbach in Storehouse First Floor",
+            "zh": "在保藏库一楼找到安帕赫"
+          },
+          "action": {
+            "en": "Exhaust his dialogue in the Specimen Storehouse.",
+            "zh": "在幽影城保藏库一楼附近找到安帕赫并说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "freyja_first",
+          "title": {
+            "en": "Ask Ansbach about Freyja BEFORE handing over the scroll",
+            "zh": "交卷轴前先询问弗蕾亚"
+          },
+          "action": {
+            "en": "If you want Freyja’s Letter/Golden Lion Shield chain, speak to Freyja on the Seventh Floor and tell Ansbach about her problem before giving him the Secret Rite Scroll.",
+            "zh": "若要完成弗蕾亚信件/黄金狮子盾链，务必先在保藏库七楼与弗蕾亚交谈，再把她的困惑告诉安帕赫，然后才交秘密仪式卷轴。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "scroll",
+          "title": {
+            "en": "Pick up the Secret Rite Scroll",
+            "zh": "取得秘密仪式卷轴"
+          },
+          "action": {
+            "en": "Collect it in the Storehouse, but delay handing it over until the Freyja conversation is set up.",
+            "zh": "在保藏库取得秘密仪式卷轴，但若要弗蕾亚支线，先别急着交给安帕赫。"
+          },
+          "anchor": {
+            "marker": "item:21010340"
+          },
+          "completeWhen": {
+            "marker": "item:21010340"
+          }
+        },
+        {
+          "id": "letter",
+          "title": {
+            "en": "Deliver Ansbach’s Letter to Freyja",
+            "zh": "把安帕赫的信交给弗蕾亚"
+          },
+          "action": {
+            "en": "After discussing Freyja and then giving the Secret Rite Scroll, obtain the Letter for Freyja from Ansbach and deliver it upstairs.",
+            "zh": "先完成弗蕾亚话题再交卷轴，可从安帕赫取得“给弗蕾亚的信”；把信送到七楼。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "reward": {
+            "en": "Enables Freyja’s Golden Lion Shield reward",
+            "zh": "推进弗蕾亚并获得黄金狮子盾"
+          }
+        },
+        {
+          "id": "leda_choice",
+          "title": {
+            "en": "Resolve Leda’s Ansbach confrontation if it appears",
+            "zh": "若出现蕾妲对安帕赫，选择阵营"
+          },
+          "action": {
+            "en": "Gold sign: help Ansbach and preserve his endgame route. Red sign: help Leda, killing Ansbach. Skipping may also preserve him depending on prior Hornsent choices.",
+            "zh": "金符：帮助安帕赫并保留终局路线；红符：帮助蕾妲并杀死安帕赫。根据前面角人分支，也可能跳过该对决并让安帕赫继续。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Mutually exclusive",
+            "zh": "互斥分支"
+          }
+        },
+        {
+          "id": "enir",
+          "title": {
+            "en": "Summon Ansbach for the followers battle",
+            "zh": "在米凯拉追随者群战召唤安帕赫"
+          },
+          "action": {
+            "en": "If alive and progressed, Ansbach can aid you against Leda’s group at Enir-Ilim.",
+            "zh": "若安帕赫存活且支线推进正确，可在恩希尔·伊利姆群战召唤他。"
+          },
+          "anchor": {
+            "marker": "grace:200105"
+          },
+          "guideOnly": true,
+          "optional": true
+        },
+        {
+          "id": "radahn",
+          "title": {
+            "en": "Summon Ansbach for the final boss if desired",
+            "zh": "最终 Boss 可选召唤安帕赫"
+          },
+          "action": {
+            "en": "His summon is optional for quest completion; after victory, return to the arena entrance.",
+            "zh": "是否召唤不影响领取最终遗物；击败最终 Boss 后返回场地入口附近。"
+          },
+          "anchor": {
+            "marker": "grace:200106"
+          },
+          "completeWhen": {
+            "marker": "boss:20010800"
+          },
+          "optional": true
+        },
+        {
+          "id": "loot",
+          "title": {
+            "en": "Collect Ansbach’s final equipment",
+            "zh": "拾取安帕赫最终装备"
+          },
+          "action": {
+            "en": "After the final boss, loot his body for Ansbach’s Set, Obsidian Lamina and Furious Blade of Ansbach on the completed route.",
+            "zh": "最终 Boss 后，在完成安帕赫路线的情况下拾取其遗体，可得安帕赫套装、黑曜薄刀与安帕赫的狂刃。"
+          },
+          "anchor": {
+            "marker": "grace:200106"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Ansbach’s Set, Obsidian Lamina, Furious Blade of Ansbach",
+            "zh": "安帕赫套装、黑曜薄刀、安帕赫的狂刃"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61454200"
+          },
+          {
+            "marker": "grace:61464200"
+          },
+          {
+            "marker": "grace:61484300"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "ansbach_freyja_order",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:200102"
+          },
+          "affects": [
+            "freyja_first",
+            "letter"
+          ],
+          "text": {
+            "en": "Do not hand Ansbach the Secret Rite Scroll before discussing Freyja if you want Freyja’s letter/reward chain. Finish Storehouse business before burning the Sealing Tree.",
+            "zh": "若要弗蕾亚的信件/奖励链，不要在先讨论弗蕾亚之前就把秘密仪式卷轴交给安帕赫；烧毁封印树前应完成保藏库相关事项。"
+          }
+        },
+        {
+          "id": "ansbach_leda",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:200102"
+          },
+          "affects": [
+            "leda_choice"
+          ],
+          "text": {
+            "en": "Killing Ansbach for Leda ends his later summons and final weapon/incantation route.",
+            "zh": "协助蕾妲杀死安帕赫，会失去他后续召唤与最终武器/祷告路线。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "freyja",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Redmane Freyja",
+        "zh": "“红狮子”弗蕾亚"
+      },
+      "character": {
+        "en": "Redmane Freyja",
+        "zh": "弗蕾亚"
+      },
+      "steps": [
+        {
+          "id": "threepath",
+          "title": {
+            "en": "Meet Freyja at Three-Path Cross",
+            "zh": "在三叉口遇见弗蕾亚"
+          },
+          "action": {
+            "en": "Exhaust her dialogue before the followers disperse.",
+            "zh": "在米凯拉追随者分散前尽量与弗蕾亚说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:61464200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "storehouse",
+          "title": {
+            "en": "Find Freyja on Storehouse Seventh Floor",
+            "zh": "在保藏库七楼找到弗蕾亚"
+          },
+          "action": {
+            "en": "After the charm breaks, find her studying Radahn/Miquella and exhaust her dialogue about her unresolved question.",
+            "zh": "魅惑破除后，在保藏库七楼找到研究拉塔恩与米凯拉的弗蕾亚，并说完她的困惑。"
+          },
+          "anchor": {
+            "marker": "grace:210102"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "tell_ansbach",
+          "title": {
+            "en": "Tell Ansbach about Freyja first",
+            "zh": "先把弗蕾亚的问题告诉安帕赫"
+          },
+          "action": {
+            "en": "Do this BEFORE giving Ansbach the Secret Rite Scroll.",
+            "zh": "这一动作必须尽量在把秘密仪式卷轴交给安帕赫之前完成。"
+          },
+          "anchor": {
+            "marker": "grace:210101"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "letter",
+          "title": {
+            "en": "Obtain and deliver the Letter for Freyja",
+            "zh": "取得并交付“给弗蕾亚的信”"
+          },
+          "action": {
+            "en": "After Ansbach has heard about Freyja and receives the scroll, get his letter and bring it to Freyja.",
+            "zh": "安帕赫得知弗蕾亚的问题并取得卷轴后，拿到他的信并交给弗蕾亚。"
+          },
+          "anchor": {
+            "marker": "grace:210102"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Golden Lion Shield from Freyja",
+            "zh": "弗蕾亚给予黄金狮子盾"
+          }
+        },
+        {
+          "id": "enir",
+          "title": {
+            "en": "Resolve Freyja at the final follower battle",
+            "zh": "在最终追随者群战处理弗蕾亚"
+          },
+          "action": {
+            "en": "Depending on progression she may stand with Leda at Enir-Ilim; defeat her there and collect her gear.",
+            "zh": "根据支线推进，她可能在恩希尔·伊利姆站在蕾妲一方；群战后可取得相应装备。"
+          },
+          "anchor": {
+            "marker": "grace:200105"
+          },
+          "completeWhen": {
+            "marker": "boss:20010850"
+          },
+          "optional": true
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61454200"
+          },
+          {
+            "marker": "grace:61464200"
+          },
+          {
+            "marker": "grace:61484300"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "freyja_letter",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:200102"
+          },
+          "affects": [
+            "tell_ansbach",
+            "letter"
+          ],
+          "text": {
+            "en": "Freyja’s letter chain is order-sensitive: speak to Freyja and ask Ansbach about her before handing over the Secret Rite Scroll; complete it before Enir-Ilim.",
+            "zh": "弗蕾亚的信件链有严格顺序：先和弗蕾亚交谈并询问安帕赫，再交秘密仪式卷轴；进入恩希尔·伊利姆前完成。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "moore",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Moore & Forager Brood",
+        "zh": "穆尔与拾荒虫群"
+      },
+      "character": {
+        "en": "Moore",
+        "zh": "穆尔"
+      },
+      "steps": [
+        {
+          "id": "main_gate",
+          "title": {
+            "en": "Meet Moore at Main Gate Cross",
+            "zh": "在正门前方十字记号遇见穆尔"
+          },
+          "action": {
+            "en": "Exhaust Moore’s dialogue and check his shop.",
+            "zh": "与穆尔说完对白并查看商店。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "black_syrup",
+          "title": {
+            "en": "Get Black Syrup for Thiollier",
+            "zh": "取得给休里耶的黑色浓浆"
+          },
+          "action": {
+            "en": "Meet Thiollier first, then talk to Moore again BEFORE the charm breaks to receive Black Syrup.",
+            "zh": "先见过休里耶，再在魅惑破除前回来找穆尔，可取得给休里耶的黑色浓浆。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "reward": {
+            "en": "Black Syrup -> Thiollier’s Concoction chain",
+            "zh": "黑色浓浆 → 休里耶秘药链"
+          }
+        },
+        {
+          "id": "brood_1_3_5_6",
+          "title": {
+            "en": "Collect Forager Brood Cookbooks 1, 2, 3, 5, 6",
+            "zh": "收集拾荒虫制作笔记 1、2、3、5、6"
+          },
+          "action": {
+            "en": "Find and speak to the five friendly Forager Brood across the Realm of Shadow. Do not kill them.",
+            "zh": "在幽影之地找到五只友好的拾荒虫并交谈，取得对应制作笔记；不要击杀。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true,
+          "optional": true
+        },
+        {
+          "id": "brood_4",
+          "title": {
+            "en": "Heal the injured Forager Brood for Cookbook 4",
+            "zh": "治疗受伤拾荒虫取得制作笔记 4"
+          },
+          "action": {
+            "en": "At the injured brood near Church of the Crusade, use a Warming/Sunwarmth Stone, rest, and return.",
+            "zh": "在圣战教堂附近遇到受伤拾荒虫时，使用温热石/阳暖石类治疗，坐赐福刷新后回来领取制作笔记 4。"
+          },
+          "anchor": {
+            "marker": "poi:69474600"
+          },
+          "guideOnly": true,
+          "optional": true
+        },
+        {
+          "id": "brood_7",
+          "title": {
+            "en": "Return to Moore for Cookbook 7",
+            "zh": "回穆尔处取得制作笔记 7"
+          },
+          "action": {
+            "en": "After obtaining the brood cookbooks (especially the rescued brood), talk to Moore for Forager Brood Cookbook 7 before resolving his fate.",
+            "zh": "完成拾荒虫制作笔记收集（尤其救助受伤虫）后，在决定穆尔命运前回去交谈取得制作笔记 7。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "reward": {
+            "en": "Forager Brood Cookbook [7]",
+            "zh": "拾荒虫的制作笔记【7】"
+          }
+        },
+        {
+          "id": "fate_forward",
+          "title": {
+            "en": "Tell Moore “Put it behind you”",
+            "zh": "告诉穆尔“忘掉过去”"
+          },
+          "action": {
+            "en": "After the charm breaks, this sends Moore toward the later Enir-Ilim confrontation with Leda’s group.",
+            "zh": "魅惑破除后选择让他“忘掉过去/向前走”，穆尔会在后期加入恩希尔·伊利姆蕾妲阵营。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Fate choice",
+            "zh": "命运分支：向前走"
+          },
+          "exclusiveGroup": "moore_fate_final",
+          "exclusiveOption": "forward"
+        },
+        {
+          "id": "fate_sad",
+          "title": {
+            "en": "Tell Moore “Remain sad forever”",
+            "zh": "告诉穆尔“永远悲伤”"
+          },
+          "action": {
+            "en": "This alternate outcome moves his final remains/rewards to the Church of the Crusade area instead of the Enir-Ilim battle.",
+            "zh": "该分支会让穆尔以另一种方式结束，其遗物/奖励会出现在圣战教堂一带，而非加入恩希尔·伊利姆群战。"
+          },
+          "anchor": {
+            "marker": "poi:69474600"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Fate choice",
+            "zh": "命运分支：永远悲伤"
+          },
+          "exclusiveGroup": "moore_fate_final",
+          "exclusiveOption": "sad"
+        },
+        {
+          "id": "fate_wait",
+          "title": {
+            "en": "Answer “I don’t know” and decide later",
+            "zh": "回答“不知道”，暂缓决定"
+          },
+          "action": {
+            "en": "This postpones the irreversible answer; return later when you have finished Moore/Forager/Thiollier errands.",
+            "zh": "该回答可暂缓不可逆决定；完成穆尔、拾荒虫和休里耶前置后再回来选择。"
+          },
+          "anchor": {
+            "marker": "grace:61454200"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Fate choice",
+            "zh": "命运分支：暂缓"
+          }
+        },
+        {
+          "id": "final",
+          "title": {
+            "en": "Collect Moore’s final equipment/bell bearing",
+            "zh": "取得穆尔最终装备与铃珠"
+          },
+          "action": {
+            "en": "Resolve the chosen fate and collect his Verdigris equipment and Bell Bearing at the corresponding endpoint.",
+            "zh": "根据所选命运分支，在对应终点取得铜绿大盾/防具与穆尔的铃珠。"
+          },
+          "anchor": {
+            "marker": "grace:200105"
+          },
+          "guideOnly": true,
+          "optional": true
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61454200"
+          },
+          {
+            "marker": "grace:61464200"
+          },
+          {
+            "marker": "grace:61484300"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "moore_charm",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:210002"
+          },
+          "affects": [
+            "black_syrup"
+          ],
+          "text": {
+            "en": "The Great Rune/charm break can remove the Black Syrup handoff. Meet Thiollier, then return to Moore before approaching Shadow Keep/eastern trigger routes.",
+            "zh": "大卢恩/魅惑破除可能使黑色浓浆交付链消失。请先见休里耶，再在靠近幽影城或东侧触发路线前回穆尔处。"
+          }
+        },
+        {
+          "id": "moore_brood",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:200102"
+          },
+          "affects": [
+            "brood_1_3_5_6",
+            "brood_4",
+            "brood_7"
+          ],
+          "text": {
+            "en": "Finish the Forager Brood cookbooks before locking Moore into his final fate. Killing multiple friendly brood can also make Moore hostile.",
+            "zh": "在把穆尔锁进最终命运前尽量完成拾荒虫制作笔记。击杀多只友好拾荒虫还可能使穆尔敌对。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompleteAny": [
+        "final"
+      ]
+    },
+    {
+      "id": "thiollier",
+      "pack": "dlc",
+      "group": "major",
+      "name": {
+        "en": "Thiollier & St. Trina",
+        "zh": "休里耶与托莉娜"
+      },
+      "character": {
+        "en": "Thiollier / St. Trina",
+        "zh": "休里耶 / 托莉娜"
+      },
+      "steps": [
+        {
+          "id": "pillar",
+          "title": {
+            "en": "Meet Thiollier at Pillar Path Cross",
+            "zh": "在通柱坡十字记号遇见休里耶"
+          },
+          "action": {
+            "en": "Exhaust Thiollier’s dialogue and open his shop.",
+            "zh": "与休里耶说完对白并打开商店。"
+          },
+          "anchor": {
+            "marker": "grace:61484300"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "syrup",
+          "title": {
+            "en": "Give Black Syrup and obtain Thiollier’s Concoction",
+            "zh": "交黑色浓浆并取得休里耶的秘药"
+          },
+          "action": {
+            "en": "Get Black Syrup from Moore, give it to Thiollier, ask about it, then choose the life-weary dialogue to receive the concoction.",
+            "zh": "从穆尔取得黑色浓浆交给休里耶，继续询问并选择“对生命感到疲惫”相关对白，取得休里耶的秘药。"
+          },
+          "anchor": {
+            "marker": "grace:61484300"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "reward": {
+            "en": "Thiollier’s Concoction; also enables Priestess alternate route",
+            "zh": "休里耶的秘药；同时解锁龙飨女巫另一结局"
+          }
+        },
+        {
+          "id": "fissure",
+          "title": {
+            "en": "Reach Stone Coffin Fissure / Garden of Deep Purple",
+            "zh": "前往石棺大洞/深紫花园"
+          },
+          "action": {
+            "en": "After the charm breaks, descend the fissure and defeat the Putrescent Knight to reach St. Trina.",
+            "zh": "魅惑破除后进入石棺大洞，击败融泥骑士，抵达托莉娜所在的深紫花园。"
+          },
+          "anchor": {
+            "marker": "grace:220001"
+          },
+          "completeWhen": {
+            "marker": "boss:22000800"
+          }
+        },
+        {
+          "id": "trina_words",
+          "title": {
+            "en": "Imbibe St. Trina’s nectar repeatedly",
+            "zh": "反复饮用托莉娜花蜜听取话语"
+          },
+          "action": {
+            "en": "Drink the nectar repeatedly and die/return until St. Trina delivers all three messages about Miquella.",
+            "zh": "反复“饮用花蜜”并死亡返回，直到听完托莉娜关于米凯拉的三段话。"
+          },
+          "anchor": {
+            "marker": "poi:63405200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "tell_thiollier",
+          "title": {
+            "en": "Tell Thiollier what St. Trina said",
+            "zh": "把托莉娜的话告诉休里耶"
+          },
+          "action": {
+            "en": "Persist through his disbelief and exhaust the dialogue.",
+            "zh": "即使休里耶不相信也继续转述并说完对白。"
+          },
+          "anchor": {
+            "marker": "poi:63405200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "invader",
+          "title": {
+            "en": "Defeat Thiollier’s invasion",
+            "zh": "击败入侵的休里耶"
+          },
+          "action": {
+            "en": "Advance the St. Trina dialogue until Thiollier invades in the Garden of Deep Purple; defeat him and collect St. Trina’s Smile.",
+            "zh": "推进托莉娜对白直到休里耶在深紫花园入侵；击败他并取得托莉娜的微笑。"
+          },
+          "anchor": {
+            "marker": "poi:63405200"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "St. Trina’s Smile",
+            "zh": "托莉娜的微笑"
+          }
+        },
+        {
+          "id": "reconcile",
+          "title": {
+            "en": "Speak to Thiollier again after the invasion",
+            "zh": "入侵后再次与休里耶交谈"
+          },
+          "action": {
+            "en": "Return to his physical NPC and exhaust dialogue so he accepts St. Trina’s words.",
+            "zh": "回到休里耶本体处继续说完对白，使其最终接受托莉娜的话。"
+          },
+          "anchor": {
+            "marker": "poi:63405200"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "enir",
+          "title": {
+            "en": "Summon Thiollier against Miquella’s followers",
+            "zh": "终局群战可召唤休里耶"
+          },
+          "action": {
+            "en": "On the completed route he can help at Enir-Ilim.",
+            "zh": "完成该路线后，休里耶可在恩希尔·伊利姆米凯拉追随者群战协助。"
+          },
+          "anchor": {
+            "marker": "grace:200105"
+          },
+          "guideOnly": true,
+          "optional": true
+        },
+        {
+          "id": "radahn",
+          "title": {
+            "en": "Summon Thiollier for the final boss if desired",
+            "zh": "最终 Boss 可选召唤休里耶"
+          },
+          "action": {
+            "en": "The summon is optional; after victory, return to the arena entrance for his final loot.",
+            "zh": "召唤不是领取最终奖励的必要条件；胜利后回 Boss 场入口附近拾取遗物。"
+          },
+          "anchor": {
+            "marker": "grace:200106"
+          },
+          "completeWhen": {
+            "marker": "boss:20010800"
+          },
+          "optional": true
+        },
+        {
+          "id": "loot",
+          "title": {
+            "en": "Collect Thiollier’s final gear",
+            "zh": "取得休里耶最终装备"
+          },
+          "action": {
+            "en": "Loot Thiollier’s body after the final boss for his set and Hidden Needle on the completed route.",
+            "zh": "完成路线并击败最终 Boss 后，拾取休里耶遗体取得套装与休里耶的暗针。"
+          },
+          "anchor": {
+            "marker": "grace:200106"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Thiollier’s Set + Thiollier’s Hidden Needle",
+            "zh": "休里耶套装 + 休里耶的暗针"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61484300"
+          },
+          {
+            "marker": "grace:220001"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "thiollier_concoction",
+          "severity": "reward",
+          "triggerWhen": {
+            "any": [
+              {
+                "marker": "grace:210002"
+              },
+              {
+                "marker": "boss:22000800"
+              }
+            ]
+          },
+          "affects": [
+            "syrup"
+          ],
+          "text": {
+            "en": "If you want Thiollier’s Concoction (and the Dragon Communion Priestess alternate reward route), get the Black Syrup/concoction before the Shadow Keep charm-break route or before committing deep into St. Trina’s path.",
+            "zh": "若要休里耶的秘药（以及龙飨女巫另一套奖励），应在触发幽影城魅惑破除路线、或深入托莉娜路线前完成黑色浓浆→秘药。"
+          }
+        },
+        {
+          "id": "thiollier_endgame",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:200102"
+          },
+          "affects": [
+            "trina_words",
+            "tell_thiollier",
+            "invader",
+            "reconcile"
+          ],
+          "text": {
+            "en": "Finish the St. Trina/Thiollier reconciliation before burning the Sealing Tree if you want his endgame summons and final equipment.",
+            "zh": "若要休里耶的终局召唤与最终装备，应在烧毁封印树前完成托莉娜/休里耶和解流程。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "ymir_jolan",
+      "pack": "dlc",
+      "group": "major",
+      "name": {
+        "en": "Count Ymir & Jolán",
+        "zh": "尤弥尔与约兰"
+      },
+      "character": {
+        "en": "Count Ymir / Jolán",
+        "zh": "尤弥尔 / 约兰"
+      },
+      "steps": [
+        {
+          "id": "cathedral",
+          "title": {
+            "en": "Meet Count Ymir at Cathedral of Manus Metyr",
+            "zh": "在玛努斯·美特大教堂见尤弥尔"
+          },
+          "action": {
+            "en": "Exhaust Ymir’s dialogue to receive the Hole-Laden Necklace and first Ruins Map; speak to Jolán after she appears.",
+            "zh": "与尤弥尔说完对白，取得孔洞项链与第一张遗迹地图；约兰出现后也与她交谈。"
+          },
+          "anchor": {
+            "marker": "grace:69514500"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "rhia",
+          "title": {
+            "en": "Ring the bell at Finger Ruins of Rhia",
+            "zh": "敲响利亚指头遗迹之钟"
+          },
+          "action": {
+            "en": "Use the necklace at the central hanging bell to receive Crimson Seed Talisman +1.",
+            "zh": "在利亚指头遗迹中央用孔洞项链敲钟，取得红种子护符 +1。"
+          },
+          "anchor": {
+            "marker": "grace:68503800"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Crimson Seed Talisman +1",
+            "zh": "红种子护符 +1"
+          }
+        },
+        {
+          "id": "map2",
+          "title": {
+            "en": "Return to Ymir for the second map",
+            "zh": "回尤弥尔处取得第二张地图"
+          },
+          "action": {
+            "en": "Exhaust Ymir and Jolán again after Rhia.",
+            "zh": "完成利亚遗迹后返回大教堂，再与尤弥尔、约兰说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:69514500"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "dheo",
+          "title": {
+            "en": "Ring the bell at Finger Ruins of Dheo",
+            "zh": "敲响狄欧指头遗迹之钟"
+          },
+          "action": {
+            "en": "Reach the Hinterland/Finger Ruins of Dheo and ring the second bell.",
+            "zh": "进入后门区域的狄欧指头遗迹，敲响第二口钟。"
+          },
+          "anchor": {
+            "marker": "poi:69534600"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Cerulean Seed Talisman +1",
+            "zh": "蓝种子护符 +1"
+          }
+        },
+        {
+          "id": "map3",
+          "title": {
+            "en": "Receive Ymir’s third map and Beloved Stardust",
+            "zh": "取得第三张地图与珍爱星尘"
+          },
+          "action": {
+            "en": "Return to the cathedral after Dheo and exhaust Ymir.",
+            "zh": "完成狄欧遗迹后回大教堂与尤弥尔说完对白。"
+          },
+          "anchor": {
+            "marker": "grace:69514500"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Beloved Stardust",
+            "zh": "珍爱星尘"
+          }
+        },
+        {
+          "id": "miyr",
+          "title": {
+            "en": "Descend beneath Ymir’s throne",
+            "zh": "从尤弥尔座椅下方进入密亚指头遗迹"
+          },
+          "action": {
+            "en": "When Ymir leaves the throne, interact with it and descend; defeat Swordhand Anna and reach the bell.",
+            "zh": "尤弥尔离开座椅后调查座椅并下行；击败黑夜剑士安娜，抵达密亚指头遗迹。"
+          },
+          "anchor": {
+            "marker": "poi:69514501"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "reward": {
+            "en": "Claws of Night from Anna",
+            "zh": "击败安娜取得黑夜爪"
+          }
+        },
+        {
+          "id": "metyr",
+          "title": {
+            "en": "Defeat Metyr, Mother of Fingers",
+            "zh": "击败“指头之母”梅蒂尔"
+          },
+          "action": {
+            "en": "Ring the Miyr bell and defeat Metyr.",
+            "zh": "敲响密亚的钟并击败梅蒂尔。"
+          },
+          "anchor": {
+            "marker": "poi:69514501"
+          },
+          "completeWhen": {
+            "marker": "boss:25000800"
+          },
+          "reward": {
+            "en": "Remembrance of the Mother of Fingers",
+            "zh": "指头之母的追忆"
+          }
+        },
+        {
+          "id": "jolan_yimir",
+          "title": {
+            "en": "Defeat Jolán/Anna encounter and Count Ymir",
+            "zh": "完成约兰/安娜与尤弥尔战斗"
+          },
+          "action": {
+            "en": "Return to the cathedral after Metyr and resolve the successive hostile encounters, ending with Count Ymir.",
+            "zh": "击败梅蒂尔后返回大教堂，处理连续敌对事件，最终击败尤弥尔。"
+          },
+          "anchor": {
+            "marker": "grace:69514500"
+          },
+          "completeWhen": {
+            "marker": "boss:2051450720"
+          }
+        },
+        {
+          "id": "jolan_grace",
+          "title": {
+            "en": "Give Jolán an Iris of Grace",
+            "zh": "给约兰“赐福覆眼膜”"
+          },
+          "action": {
+            "en": "Choose the Iris of Grace to obtain Swordhand of Night Jolán spirit ashes.",
+            "zh": "选择赐福覆眼膜，可取得“黑夜剑士约兰”骨灰。"
+          },
+          "anchor": {
+            "marker": "item:21000800"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Jolán reward choice",
+            "zh": "约兰奖励分支：骨灰"
+          },
+          "reward": {
+            "en": "Swordhand of Night Jolán Spirit Ash",
+            "zh": "黑夜剑士约兰骨灰"
+          },
+          "exclusiveGroup": "jolan_iris_choice",
+          "exclusiveOption": "grace"
+        },
+        {
+          "id": "jolan_occult",
+          "title": {
+            "en": "Give Jolán an Iris of Occultation",
+            "zh": "给约兰“幽暗覆眼膜”"
+          },
+          "action": {
+            "en": "Choose the Iris of Occultation to obtain the Sword of Night instead.",
+            "zh": "选择幽暗覆眼膜则取得黑夜刀。"
+          },
+          "anchor": {
+            "marker": "grace:69514500"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Jolán reward choice",
+            "zh": "约兰奖励分支：武器"
+          },
+          "reward": {
+            "en": "Sword of Night",
+            "zh": "黑夜刀"
+          },
+          "exclusiveGroup": "jolan_iris_choice",
+          "exclusiveOption": "occult"
+        },
+        {
+          "id": "anna_merge",
+          "title": {
+            "en": "Optional: merge Jolán with Anna",
+            "zh": "可选：让约兰与安娜合并"
+          },
+          "action": {
+            "en": "If you chose Jolán’s spirit ash, find Anna’s puppet body and combine them into Jolán and Anna spirit ashes.",
+            "zh": "若选择约兰骨灰，可找到安娜的人偶身体，将二者合并成约兰与安娜骨灰。"
+          },
+          "anchor": {
+            "marker": "poi:69534600"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "reward": {
+            "en": "Jolán and Anna Spirit Ashes",
+            "zh": "约兰与安娜骨灰"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:69514500"
+          },
+          {
+            "marker": "grace:68503800"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "jolan_choice",
+          "severity": "reward",
+          "triggerWhen": {
+            "always": false
+          },
+          "affects": [],
+          "text": {
+            "en": "Jolán’s Iris of Grace and Iris of Occultation rewards are mutually exclusive for Jolán, although the DLC contains multiple copies of each iris so Queelign can be resolved independently.",
+            "zh": "约兰这里的赐福覆眼膜/幽暗覆眼膜奖励互斥；不过 DLC 内两类覆眼膜均有多份，因此与库维莱恩的选择可独立规划。"
+          },
+          "global": true,
+          "exclusiveGroup": "jolan_iris_choice"
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "igon",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Igon & Bayle",
+        "zh": "埃贡与狂龙贝勒"
+      },
+      "character": {
+        "en": "Igon",
+        "zh": "埃贡"
+      },
+      "steps": [
+        {
+          "id": "road",
+          "title": {
+            "en": "Meet Igon near Pillar Path Waypoint",
+            "zh": "在通柱坡附近遇见埃贡"
+          },
+          "action": {
+            "en": "Find the injured Igon on the road and exhaust both dialogue states.",
+            "zh": "在通柱坡一带道路找到受伤的埃贡，多次刷新并说完其对白。"
+          },
+          "anchor": {
+            "marker": "grace:61484300"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "drake",
+          "title": {
+            "en": "Defeat the Jagged Peak Drake and talk to Igon again",
+            "zh": "击败尖刺山飞龙后再找埃贡"
+          },
+          "action": {
+            "en": "After the drake fight, exhaust Igon until he gives Igon’s Furled Finger and asks you to summon him against Bayle.",
+            "zh": "击败尖刺山飞龙后再次与埃贡说完对白，取得埃贡的勾指，并接受对贝勒的复仇请求。"
+          },
+          "anchor": {
+            "marker": "grace:68524000"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "bayle",
+          "title": {
+            "en": "Defeat Bayle; summon Igon if you want his battle dialogue",
+            "zh": "击败贝勒；需要剧情演出可召唤埃贡"
+          },
+          "action": {
+            "en": "Igon’s summon sign appears inside Bayle’s arena once the fight starts. Summoning him is not required for his post-Bayle loot.",
+            "zh": "埃贡的召唤符会在贝勒战开始后出现在 Boss 场内；是否召唤通常不影响战后拾取其遗物。"
+          },
+          "anchor": {
+            "marker": "boss:2054390800"
+          },
+          "completeWhen": {
+            "marker": "boss:2054390800"
+          }
+        },
+        {
+          "id": "loot",
+          "title": {
+            "en": "Return to Igon’s road location for his gear",
+            "zh": "回原道路位置拾取埃贡遗物"
+          },
+          "action": {
+            "en": "After Bayle dies, return to the post-drake meeting area for Igon’s Greatbow, armor set and Bell Bearing.",
+            "zh": "击败贝勒后回到与埃贡后续交谈的道路附近，拾取埃贡的大弓、套装与铃珠。"
+          },
+          "anchor": {
+            "marker": "grace:68524000"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Igon’s Greatbow, set and Bell Bearing",
+            "zh": "埃贡的大弓、套装与铃珠"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:61484300"
+          },
+          {
+            "marker": "grace:68524000"
+          }
+        ]
+      },
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "dragon_priestess",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Dragon Communion Priestess",
+        "zh": "龙飨女巫"
+      },
+      "character": {
+        "en": "Dragon Communion Priestess",
+        "zh": "龙飨女巫"
+      },
+      "steps": [
+        {
+          "id": "altar",
+          "title": {
+            "en": "Meet the Priestess at the Grand Altar",
+            "zh": "在龙飨大祭坛见女巫"
+          },
+          "action": {
+            "en": "Choose to devour draconic essence / ask for power to receive Ancient Dragon’s Blessing while Bayle lives.",
+            "zh": "在龙飨大祭坛与女巫交谈，选择吞噬龙之精华/寻求力量；贝勒存活时可取得古龙恩泽。"
+          },
+          "anchor": {
+            "marker": "grace:68493900"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Ancient Dragon’s Blessing (repeatable while conditions allow)",
+            "zh": "古龙恩泽（满足条件时可重复补充）"
+          }
+        },
+        {
+          "id": "normal",
+          "title": {
+            "en": "Do NOT drug her; defeat Bayle",
+            "zh": "普通路线：不下药并击败贝勒"
+          },
+          "action": {
+            "en": "If you leave the Priestess awake and defeat Bayle, return to where she stood.",
+            "zh": "若不对女巫使用秘药，直接击败贝勒，之后回大祭坛。"
+          },
+          "anchor": {
+            "marker": "boss:2054390800"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Normal route",
+            "zh": "普通路线"
+          },
+          "reward": {
+            "en": "Priestess Heart + Flowerstone Gavel",
+            "zh": "女巫心脏 + 花岩槌"
+          },
+          "exclusiveGroup": "priestess_route",
+          "exclusiveOption": "normal"
+        },
+        {
+          "id": "sleep",
+          "title": {
+            "en": "At night, give Thiollier’s Concoction",
+            "zh": "秘药路线：夜间给休里耶秘药"
+          },
+          "action": {
+            "en": "Before defeating Bayle, at night give her Thiollier’s Concoction and let her sleep.",
+            "zh": "击败贝勒之前，于夜晚把休里耶的秘药交给龙飨女巫，使其睡着。"
+          },
+          "anchor": {
+            "marker": "grace:68493900"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Concoction route",
+            "zh": "秘药路线"
+          },
+          "exclusiveGroup": "priestess_route",
+          "exclusiveOption": "sleep"
+        },
+        {
+          "id": "bayle",
+          "title": {
+            "en": "Defeat Bayle the Dread",
+            "zh": "击败“狂龙”贝勒"
+          },
+          "action": {
+            "en": "Complete the Jagged Peak boss fight.",
+            "zh": "完成尖刺山的贝勒 Boss 战。"
+          },
+          "anchor": {
+            "marker": "boss:2054390800"
+          },
+          "completeWhen": {
+            "marker": "boss:2054390800"
+          }
+        },
+        {
+          "id": "normal_reward",
+          "title": {
+            "en": "Collect the normal-route rewards",
+            "zh": "领取普通路线奖励"
+          },
+          "action": {
+            "en": "If she was not drugged, collect Priestess Heart and Flowerstone Gavel at the altar.",
+            "zh": "若没有下药，回祭坛拾取女巫心脏与花岩槌。"
+          },
+          "anchor": {
+            "marker": "grace:68493900"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Normal route",
+            "zh": "普通路线"
+          },
+          "reward": {
+            "en": "Priestess Heart + Flowerstone Gavel",
+            "zh": "女巫心脏 + 花岩槌"
+          },
+          "exclusiveGroup": "priestess_route",
+          "exclusiveOption": "normal"
+        },
+        {
+          "id": "sleep_reward",
+          "title": {
+            "en": "Confess and accept Florissax into service",
+            "zh": "秘药路线：坦白并让芙柔桑克斯效忠"
+          },
+          "action": {
+            "en": "If drugged, exhaust her dialogue after Bayle for Dragonbolt of Florissax; confess you put her to sleep and accept her service for Ancient Dragon Florissax spirit ash.",
+            "zh": "若曾下药，击败贝勒后说完对白可得芙柔桑克斯的龙雷；坦白是你使其睡着并接受其效忠，可再得“古龙芙柔桑克斯”骨灰。"
+          },
+          "anchor": {
+            "marker": "grace:68493900"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Concoction route",
+            "zh": "秘药路线"
+          },
+          "reward": {
+            "en": "Dragonbolt of Florissax + Ancient Dragon Florissax Spirit Ash",
+            "zh": "芙柔桑克斯的龙雷 + 古龙芙柔桑克斯骨灰"
+          },
+          "exclusiveGroup": "priestess_route",
+          "exclusiveOption": "sleep"
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:68493900"
+          },
+          {
+            "marker": "boss:2054390800"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "priestess_choice",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "boss:2054390800"
+          },
+          "affects": [
+            "sleep"
+          ],
+          "text": {
+            "en": "The Priestess reward sets are mutually exclusive. If you want the Florissax incantation/spirit route, administer Thiollier’s Concoction at night BEFORE defeating Bayle.",
+            "zh": "龙飨女巫两套终局奖励互斥。若要芙柔桑克斯祷告/骨灰路线，必须在击败贝勒前于夜晚使用休里耶秘药。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompleteAny": [
+        "normal_reward",
+        "sleep_reward"
+      ]
+    },
+    {
+      "id": "queelign",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Fire Knight Queelign",
+        "zh": "火焰骑士库维莱恩"
+      },
+      "character": {
+        "en": "Fire Knight Queelign",
+        "zh": "库维莱恩"
+      },
+      "steps": [
+        {
+          "id": "invade1",
+          "title": {
+            "en": "Defeat Queelign’s first invasion",
+            "zh": "击败库维莱恩第一次入侵"
+          },
+          "action": {
+            "en": "The two invasion locations are Belurat and Church of the Crusade; they can be done in either order.",
+            "zh": "两处入侵点为塔之镇贝瑞特与圣战教堂，顺序不限。"
+          },
+          "anchor": {
+            "marker": "grace:200002"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Crusade Insignia from the first invasion",
+            "zh": "第一次入侵奖励圣战徽章"
+          }
+        },
+        {
+          "id": "invade2",
+          "title": {
+            "en": "Defeat the second invasion",
+            "zh": "击败第二次入侵"
+          },
+          "action": {
+            "en": "Clear the other invasion to obtain Flame Skewer and the Prayer Room Key.",
+            "zh": "在另一地点完成第二次入侵，取得战灰“火焰枪刺”与祈祷室钥匙。"
+          },
+          "anchor": {
+            "marker": "poi:69474600"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Ash of War: Flame Skewer + Prayer Room Key",
+            "zh": "战灰：火焰枪刺 + 祈祷室钥匙"
+          }
+        },
+        {
+          "id": "prayer",
+          "title": {
+            "en": "Find Queelign in Shadow Keep Prayer Room",
+            "zh": "在幽影城祈祷室找到库维莱恩"
+          },
+          "action": {
+            "en": "Use the Prayer Room Key in the Church District and exhaust his dialogue.",
+            "zh": "在幽影城教区使用祈祷室钥匙开门，与倒地的库维莱恩说完对白。"
+          },
+          "anchor": {
+            "marker": "poi:210000"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "grace",
+          "title": {
+            "en": "Give an Iris of Grace",
+            "zh": "交“赐福覆眼膜”"
+          },
+          "action": {
+            "en": "This branch gives Fire Knight Queelign spirit ashes.",
+            "zh": "该分支获得“火焰骑士库维莱恩”骨灰。"
+          },
+          "anchor": {
+            "marker": "item:21000800"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Iris choice",
+            "zh": "覆眼膜分支：骨灰"
+          },
+          "reward": {
+            "en": "Fire Knight Queelign Spirit Ash",
+            "zh": "火焰骑士库维莱恩骨灰"
+          },
+          "exclusiveGroup": "queelign_iris_choice",
+          "exclusiveOption": "grace"
+        },
+        {
+          "id": "occult",
+          "title": {
+            "en": "Give an Iris of Occultation",
+            "zh": "交“幽暗覆眼膜”"
+          },
+          "action": {
+            "en": "This mutually-exclusive branch gives Queelign’s Greatsword.",
+            "zh": "该互斥分支获得库维莱恩的大剑。"
+          },
+          "anchor": {
+            "marker": "poi:210000"
+          },
+          "guideOnly": true,
+          "optional": true,
+          "branch": {
+            "en": "Iris choice",
+            "zh": "覆眼膜分支：武器"
+          },
+          "reward": {
+            "en": "Queelign’s Greatsword",
+            "zh": "库维莱恩的大剑"
+          },
+          "exclusiveGroup": "queelign_iris_choice",
+          "exclusiveOption": "occult"
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:200002"
+          },
+          {
+            "marker": "poi:69474600"
+          },
+          {
+            "marker": "poi:210000"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "queelign_choice",
+          "severity": "reward",
+          "triggerWhen": {
+            "always": false
+          },
+          "affects": [],
+          "text": {
+            "en": "Iris of Grace vs Iris of Occultation is mutually exclusive for Queelign. The DLC has more than one of each iris, so this does not force the same choice for Jolán.",
+            "zh": "库维莱恩处的赐福覆眼膜/幽暗覆眼膜奖励互斥。DLC 中两类覆眼膜都有多份，因此不会强迫约兰做相同选择。"
+          },
+          "global": true,
+          "exclusiveGroup": "queelign_iris_choice"
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompleteAny": [
+        "grace",
+        "occult"
+      ]
+    },
+    {
+      "id": "grandam",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Hornsent Grandam",
+        "zh": "角人老妪"
+      },
+      "character": {
+        "en": "Hornsent Grandam",
+        "zh": "角人老妪"
+      },
+      "steps": [
+        {
+          "id": "key",
+          "title": {
+            "en": "Open the Belurat Storeroom",
+            "zh": "打开塔之镇仓库房间"
+          },
+          "action": {
+            "en": "Find the Storeroom Key in Belurat and unlock the room near Small Private Altar.",
+            "zh": "在塔之镇贝瑞特找到仓库钥匙，打开小祭坛赐福附近的房间。"
+          },
+          "anchor": {
+            "marker": "grace:200002"
+          },
+          "guideOnly": true
+        },
+        {
+          "id": "lion",
+          "title": {
+            "en": "Defeat Divine Beast Dancing Lion",
+            "zh": "击败神兽舞狮"
+          },
+          "action": {
+            "en": "Obtain the Divine Beast Head.",
+            "zh": "击败神兽舞狮并取得神兽头部。"
+          },
+          "anchor": {
+            "marker": "boss:20000800"
+          },
+          "completeWhen": {
+            "marker": "boss:20000800"
+          }
+        },
+        {
+          "id": "head",
+          "title": {
+            "en": "Wear the Divine Beast Head and speak to Grandam",
+            "zh": "戴神兽头部与老妪交谈"
+          },
+          "action": {
+            "en": "Equip the boss head before speaking so she recognizes you and gives Watchful Spirit.",
+            "zh": "先装备神兽舞狮头部再与老妪交谈，使她认可你并给予守护灵祷告。"
+          },
+          "anchor": {
+            "marker": "grace:200002"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Watchful Spirit",
+            "zh": "守护灵"
+          }
+        },
+        {
+          "id": "stew",
+          "title": {
+            "en": "Rest and return for Scorpion Stew",
+            "zh": "刷新后取得蝎子煲"
+          },
+          "action": {
+            "en": "Rest/reload, speak again and receive Scorpion Stew; it can also be offered to Hornsent.",
+            "zh": "坐赐福/刷新后再次交谈取得蝎子煲；也可把它交给角人。"
+          },
+          "anchor": {
+            "marker": "grace:200002"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Scorpion Stew",
+            "zh": "蝎子煲"
+          }
+        },
+        {
+          "id": "messmer",
+          "title": {
+            "en": "Defeat Messmer",
+            "zh": "击败梅瑟莫"
+          },
+          "action": {
+            "en": "Advance Shadow Keep and defeat Messmer.",
+            "zh": "推进幽影城并击败梅瑟莫。"
+          },
+          "anchor": {
+            "marker": "grace:210100"
+          },
+          "completeWhen": {
+            "marker": "grace:210100"
+          }
+        },
+        {
+          "id": "gourmet",
+          "title": {
+            "en": "Return for Gourmet Scorpion Stew",
+            "zh": "返回取得豪华蝎子煲"
+          },
+          "action": {
+            "en": "After Messmer, return to Grandam and exhaust her dialogue for the upgraded stew.",
+            "zh": "击败梅瑟莫后回角人老妪处说完对白，取得豪华蝎子煲。"
+          },
+          "anchor": {
+            "marker": "grace:200002"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Gourmet Scorpion Stew",
+            "zh": "豪华蝎子煲"
+          }
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:200002"
+          },
+          {
+            "marker": "boss:20000800"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "grandam_shadowkeep",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "grace:210002"
+          },
+          "affects": [
+            "head",
+            "stew"
+          ],
+          "text": {
+            "en": "Entering/progressing Shadow Keep too early can affect Grandam’s early interactions. Finish the Divine Beast Head/Watchful Spirit/Scorpion Stew steps before pushing deep into Shadow Keep.",
+            "zh": "过早进入/推进幽影城可能影响角人老妪的前期互动。建议先完成神兽头部→守护灵→蝎子煲，再深入幽影城。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    },
+    {
+      "id": "dryleaf_dane",
+      "pack": "dlc",
+      "group": "side",
+      "name": {
+        "en": "Dryleaf Dane",
+        "zh": "落叶丹恩"
+      },
+      "character": {
+        "en": "Dryleaf Dane",
+        "zh": "落叶丹恩"
+      },
+      "steps": [
+        {
+          "id": "missive",
+          "title": {
+            "en": "Pick up Monk’s Missive and “May the Best Win” gesture",
+            "zh": "取得修士的信与“期待切磋”动作"
+          },
+          "action": {
+            "en": "After Rellana, collect the missive/gesture around Highroad Cross.",
+            "zh": "击败蕾菈娜后，在大道旁十字记号附近取得修士的信与“期待切磋”动作。"
+          },
+          "anchor": {
+            "marker": "item:2048450510"
+          },
+          "completeWhen": {
+            "marker": "item:2048450510"
+          }
+        },
+        {
+          "id": "duel",
+          "title": {
+            "en": "Challenge Dane at Moorth Ruins",
+            "zh": "在穆斯废墟向丹恩发起切磋"
+          },
+          "action": {
+            "en": "At Dane, use the “May the Best Win” gesture instead of ordinary dialogue, then win the duel.",
+            "zh": "在穆斯废墟丹恩面前使用“期待切磋”动作而不是普通对话，并赢下切磋。"
+          },
+          "anchor": {
+            "marker": "grace:69494400"
+          },
+          "guideOnly": true,
+          "reward": {
+            "en": "Dryleaf Arts + Dane’s Hat",
+            "zh": "落叶格斗术 + 丹恩帽子"
+          }
+        },
+        {
+          "id": "enir",
+          "title": {
+            "en": "Final encounter with Miquella’s followers",
+            "zh": "在米凯拉追随者终局再次遭遇丹恩"
+          },
+          "action": {
+            "en": "Dane later joins Leda’s side in the Enir-Ilim followers battle.",
+            "zh": "丹恩后期会在恩希尔·伊利姆米凯拉追随者群战站在蕾妲一方。"
+          },
+          "anchor": {
+            "marker": "grace:200105"
+          },
+          "completeWhen": {
+            "marker": "boss:20010850"
+          },
+          "optional": true
+        }
+      ],
+      "availableWhen": {
+        "any": [
+          {
+            "marker": "grace:69484500"
+          },
+          {
+            "marker": "item:2048450510"
+          }
+        ]
+      },
+      "lockouts": [
+        {
+          "id": "dane_duel",
+          "severity": "reward",
+          "triggerWhen": {
+            "marker": "boss:20010850"
+          },
+          "affects": [
+            "duel"
+          ],
+          "text": {
+            "en": "Complete Dane’s gesture duel before the final Miquella’s Followers battle; advancing to that confrontation can remove the earlier duel/reward opportunity.",
+            "zh": "在米凯拉追随者最终群战前完成丹恩的动作切磋；推进到终局对决可能使早期切磋及奖励机会消失。"
+          }
+        }
+      ],
+      "autoCompleteWhenTracked": false,
+      "manualCompletion": true
+    }
+  ]
+}

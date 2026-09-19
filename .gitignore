@@ -1,0 +1,36 @@
+# Python and local development environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.test-deps/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.log
+Thumbs.db
+.DS_Store
+
+# Local game parsing, including the generated tile manifest
+/cache/
+/.eldenringtool-scan-backup/
+/assets/tiles/
+/assets/icons/items/
+/assets/icons/[0-9]*.png
+/assets/icons/index.json
+/data/*.json
+!/data/content-pack-overrides.json
+
+# Saves and personal backups must never be published
+*.sl2
+*.co2
+*.err
+*.bak

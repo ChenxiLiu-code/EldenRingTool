@@ -1,0 +1,47 @@
+{
+  "reviewed": "2026-09-19",
+  "references": [
+    "https://www.bandainamcoent.com/news/elden-ring-patch-notes-version-1-17",
+    "https://www.pcgamer.com/games/rpg/elden-ring-tarnished-edition-weapons-armor/"
+  ],
+  "notes": "Names and exact IDs verified against installed 1.17 English FMG and catalog. Internal *_dlc01 tables contain Shadow of the Erdtree; the outer item_dlc02 bundle also contains base tables and dummy placeholders.",
+  "sources": {
+    "WeaponName_dlc01": "黄金树幽影",
+    "ProtectorName_dlc01": "黄金树幽影",
+    "AccessoryName_dlc01": "黄金树幽影",
+    "GoodsName_dlc01": "黄金树幽影",
+    "GemName_dlc01": "黄金树幽影"
+  },
+  "legacyLabels": {"扩展内容 DLC01（归属待确认）": "黄金树幽影"},
+  "items": {
+    "weapon:67530000": "褪色者礼包",
+    "weapon:31540000": "褪色者礼包",
+    "weapon:8530000": "褪色者礼包",
+    "weapon:3560000": "褪色者礼包",
+    "weapon:13510000": "褪色者礼包",
+    "weapon:64530000": "褪色者礼包",
+    "weapon:62520000": "褪色者礼包",
+    "weapon:66530000": "褪色者礼包",
+    "protector:5340000": "褪色者礼包",
+    "protector:5340100": "褪色者礼包",
+    "protector:5340200": "褪色者礼包",
+    "protector:5340300": "褪色者礼包",
+    "protector:5350000": "褪色者礼包",
+    "protector:5350100": "褪色者礼包",
+    "protector:5350200": "褪色者礼包",
+    "protector:5350300": "褪色者礼包",
+    "protector:5351100": "褪色者礼包",
+    "protector:5360000": "褪色者礼包",
+    "protector:5360100": "褪色者礼包",
+    "protector:5360200": "褪色者礼包",
+    "protector:5360300": "褪色者礼包",
+    "protector:5361000": "褪色者礼包",
+    "protector:5370000": "褪色者礼包",
+    "protector:5370100": "褪色者礼包",
+    "protector:5370200": "褪色者礼包",
+    "protector:5370300": "褪色者礼包",
+    "goods:2009600": "褪色者礼包",
+    "goods:2009610": "褪色者礼包",
+    "goods:2009620": "褪色者礼包"
+  }
+}
