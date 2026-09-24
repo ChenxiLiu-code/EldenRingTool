@@ -182,6 +182,20 @@ if '--screenshots' in sys.argv:
   switch=visual_find(w.contentItem(),'questStepSwitch_regression')
   assert switch.property('checked') == expected
   assert b.store.quest_done(b.save_path,b.characters[0],'tarnished_broken_goldmask','regression') == expected
+ # Completing Thops without ticking the spare-key guide must check the switch
+ # retrospectively, without manufacturing a persistent manual confirmation.
+ b._quest_eval = evaluate_document(b.quest_doc, {'_flags': {400362: True}})
+ quest.setProperty('packFilter', 'base')
+ QMetaObject.invokeMethod(quest, 'refresh'); QTest.qWait(250)
+ quests = quest.property('questModel')
+ if hasattr(quests, 'toVariant'): quests = quests.toVariant()
+ quest.setProperty('selectedIndex', next(i for i, q in enumerate(quests) if q['id'] == 'thops'))
+ QTest.qWait(150)
+ switch = visual_find(w.contentItem(), 'questStepSwitch_second_key')
+ assert switch is not None and switch.property('checked') and not switch.property('enabled')
+ assert all(step['complete'] for step in next(q for q in quests if q['id'] == 'thops')['steps'])
+ assert not b.store.quest_done(b.save_path, b.characters[0], 'thops', 'second_key')
+ print('THOPS RETROSPECTIVE GUIDE PASS')
  for width,height in [(1540,920),(1120,700)]:
   w.setWidth(width); w.setHeight(height)
   nav.setProperty('currentIndex',1); QTest.qWait(250)

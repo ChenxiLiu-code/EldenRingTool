@@ -28,6 +28,7 @@ Thumbs.db
 /assets/icons/index.json
 /data/*.json
 !/data/content-pack-overrides.json
+!/data/tip-glossary-zh.json
 
 # Saves and personal backups must never be published
 *.sl2

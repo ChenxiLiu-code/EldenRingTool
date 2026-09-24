@@ -1655,9 +1655,9 @@ ApplicationWindow {
                                             AppSwitch {
                                                 objectName: "questStepSwitch_" + modelData.id
                                                 visible: modelData.manualEligible
-                                                enabled: backend.activeSlot >= 0 && (modelData.manual || (modelData.source !== "auto" && modelData.state !== "missed"))
-                                                text: "手动完成"
-                                                checked: modelData.manual
+                                                enabled: backend.activeSlot >= 0 && (modelData.manual || (!modelData.complete && modelData.state !== "missed"))
+                                                text: modelData.source === "inferred" ? "后续自动确认" : "手动完成"
+                                                checked: modelData.complete
                                                 onToggled: backend.setQuestStepChecked(modelData.questId, modelData.id, checked)
                                             }
                                         }

@@ -377,11 +377,13 @@ class Backend(QObject):
         for marker in self.markers:
             marker["_uiIcon"] = marker_icon_name(ASSETS, marker.get("icon"))
         self.marker_by_id = {str(m.get("id")): m for m in self.markers}
+        from .core.tips import tip_text
         tips = load_json(DATA / "tips.json", {"tips": {}}).get("tips", {})
+        translations = load_json(DATA / "tips-zh.json", {}).get("translations", {})
         for m in self.markers:
-            tip = tips.get(str(m.get("id")))
-            if isinstance(tip, dict) and tip.get("text"):
-                m["tip"] = tip
+            tip = tips.get(str(m.get("id"))) or m.get("tip")
+            if isinstance(tip, dict):
+                m["tip"] = {**tip, "text": tip_text(tip, translations)}
         self.catalog = load_json(DATA / "catalog.json", {"schema": 2, "items": [], "categories": {}})
         self.catalog_index = build_index(self.catalog)
         self._marker_packs = {}

@@ -230,6 +230,50 @@ def test_quest_guide_and_auto_contract(backend):
     assert rows[0]['guideOnly'] and rows[0]['manualEligible']
     assert not rows[1]['guideOnly'] and not rows[1]['manualEligible']
 
+
+def test_save_update_backfills_guides_without_manual_checks(backend):
+    from eldenringtool.core.quest_engine import evaluate_document
+    from eldenringtool.core.save_updates import prepare_update
+    context = update_context(backend, snapshot_character())
+    backend.quest_doc = {'quests': [{'id': 'q', 'name': 'Quest', 'steps': [
+        {'id': 'guide', 'guideOnly': True},
+        {'id': 'first', 'completeWhen': {'flag': 1}},
+        {'id': 'second', 'completeWhen': {'flag': 2}},
+        {'id': 'third', 'completeWhen': {'flag': 3}},
+    ]}]}
+    context['quest_doc'] = backend.quest_doc
+    context['quests'] = evaluate_document(backend.quest_doc, backend.characters[0])
+    character = copy.deepcopy(backend.characters[0])
+    character['_flags'].pay = b'\x70' + bytes(124)
+    result = prepare_update({'characters': [character]}, backend.save_path, context)
+    assert result['quests_changed']
+    backend._setup = False
+    backend._on_save_done(result, backend.save_path, 123)
+    rows = backend.questCards()[0]['steps']
+    assert all(row['complete'] for row in rows)
+    assert rows[0]['source'] == 'inferred' and not rows[0]['manual']
+    for checked in (True, False):
+        backend.setQuestStepChecked('q', 'guide', checked)
+        assert all(row['complete'] for row in backend.questCards()[0]['steps'])
+
+
+def test_localized_tip_used_by_both_map_and_popup(backend, monkeypatch):
+    from eldenringtool.core.tips import source_key
+    original = 'Found inside a chest.'
+    translated = '在宝箱内取得。'
+    docs = {
+        'markers.json': {'markers': [{'id': 'item:1', 'cat': 'item', 'names': {'zh': '宝物'},
+                                     'master': 'M00', 'px': 10, 'py': 10}]},
+        'tips.json': {'tips': {'item:1': {'text': original, 'credit': 'Source'}}},
+        'tips-zh.json': {'translations': {source_key(original): {'zh': translated}}},
+    }
+    monkeypatch.setattr('eldenringtool.backend.load_json', lambda path, default: copy.deepcopy(docs.get(path.name, default)))
+    monkeypatch.setattr(backend, 'refresh_save', lambda **kwargs: None)
+    backend.reload_data()
+    assert backend.markerDetails('item:1')['tip'] == translated
+    assert backend.visibleMarkers('M00', 1, 0, 0, 100, 100, '', 'item')[0]['tip'] == translated
+    assert backend.marker_by_id['item:1']['tip']['credit'] == 'Source'
+
 def test_no_phantom_tiles_with_empty_manifest(backend):
     assert backend.visibleTiles('M00',0.1,0,0,1000,1000)==[]
 

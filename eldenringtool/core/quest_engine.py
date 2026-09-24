@@ -52,8 +52,15 @@ def evaluate_quest(quest: dict, flags=None, found=None,
     for i in range(len(steps)-1, -1, -1):
         later_tracked[i] = seen
         if not steps[i].get("guideOnly") and direct[i]: seen = True
+    # Required guides are retrospective: a later automatic milestone must not
+    # leave them waiting for a manual click. Optional/branch choices need their
+    # own evidence; never select mutually exclusive routes by list position.
     implied = [not direct[i] and not manual[i] and bool(s.get("guideOnly"))
-               and s.get("inferFromLater") is True and later_tracked[i] for i, s in enumerate(steps)]
+               and s.get("inferFromLater") is not False
+               and not s.get("exclusiveGroup")
+               and (not s.get("optional") or s.get("inferFromLater") is True)
+               and not any(s.get(k) for k in ("impliedBySteps", "implyWhen", "supersededBySteps", "supersedeWhen"))
+               and later_tracked[i] for i, s in enumerate(steps)]
 
     groups: dict[str, dict[str, dict[str, bool]]] = {}
     for i, s in enumerate(steps):

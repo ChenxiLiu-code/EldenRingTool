@@ -12,3 +12,6 @@ dependencies = [
 experimental-surface = ["numpy>=2.0", "soulstruct==2.4.3", "soulstruct-havok==1.3.2"]
 [project.scripts]
 eldenringtool = "eldenringtool.app:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
