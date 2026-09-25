@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from copy import deepcopy
 from pathlib import Path
 from urllib.parse import quote
 
@@ -32,7 +33,8 @@ class StateStore:
         self.data.setdefault("slots", {})
         self.data.setdefault("settings", {})
         self.data.setdefault("characterSettings", {})
-        for key in ("checked", "characterChecked", "questChecked", "slots", "settings", "characterSettings"):
+        self.data.setdefault("questLegacyDisabled", {})
+        for key in ("checked", "characterChecked", "questChecked", "slots", "settings", "characterSettings", "questLegacyDisabled"):
             if not isinstance(self.data.get(key), dict):
                 self.data[key] = {}
 
@@ -150,7 +152,25 @@ class StateStore:
         step = self._quest_step_id(qid, sid)
         if self._quest_bucket(save_path, character).get(step) is True:
             return True
+        if self.data["questLegacyDisabled"].get(self.character_scope(save_path, character)):
+            return False
         return self.data["checked"].get(self.quest_id(character, qid, sid)) is True
+
+    def reset_manual_marks(self, save_path, character):
+        if not character or not save_path:
+            raise ValueError("请先选择存档角色")
+        scope = self.character_scope(save_path, character)
+        previous = deepcopy(self.data)
+        self.data["characterChecked"].pop(scope, None)
+        self.data["questChecked"].pop(scope, None)
+        # Disable legacy fallback for this account/character only. The old
+        # shared keys may still be used by another account with the same name.
+        self.data["questLegacyDisabled"][scope] = True
+        try:
+            self.save()
+        except Exception:
+            self.data = previous
+            raise
 
     def set_quest_done(self, save_path, character, qid, sid, value):
         step = self._quest_step_id(qid, sid)

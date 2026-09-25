@@ -172,6 +172,8 @@ def main():
     for entry in translations.values():
         if not entry.get('reviewed'):
             entry['zh'] = polish(entry['zh'], names)
+    from review_tips import review
+    review(cache, tips)
     save()
     print(f"Saved {len(translations)} translations to {args.out}")
 

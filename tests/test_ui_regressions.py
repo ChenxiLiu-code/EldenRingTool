@@ -42,6 +42,29 @@ def snapshot_character():
             '_flags': EventFlags(bytes(125), 0, {0: 0}), '_inventoryRaw': {'items': []}, '_gestureIds': []}
 
 
+def test_journey_reset_guards_target_and_refreshes_manual_progress(backend):
+    character = snapshot_character()
+    update_context(backend, character)
+    backend.quest_doc = {'quests': [{'id': 'manual', 'steps': [{'id': 's', 'guideOnly': True}]}]}
+    backend.setMarkerChecked('manual-marker', True)
+    backend.setQuestStepChecked('manual', 's', True)
+    target = backend.manualResetTarget()
+    assert not backend.resetCurrentManualMarks('different-character')
+    assert backend.store.quest_done(backend.save_path, character, 'manual', 's')
+    character['_flags'].pay = b'\x40' + bytes(124)
+    backend._recompute_character()
+    generation = backend._save_generation
+    signals = []
+    backend.mapChanged.connect(lambda: signals.append('map'))
+    backend.questsChanged.connect(lambda: signals.append('quests'))
+    assert backend.resetCurrentManualMarks(target['scope'])
+    assert backend._save_generation > generation
+    assert signals == ['map', 'quests']
+    assert not backend.store.marker_checked(backend.save_path, character, 'manual-marker')
+    assert not backend._quest_eval['states']['manual']['steps'][0]['complete']
+    assert 'boss:1' in backend._auto_found
+
+
 @pytest.mark.parametrize('change,expected', [
     ('none', (False, False, False, False)),
     ('time', (True, False, False, False)),

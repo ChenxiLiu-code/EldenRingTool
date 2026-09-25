@@ -739,6 +739,33 @@ class Backend(QObject):
     def legacyMarkerCount(self):
         return len(self.store.legacy_marker_ids(self.marker_by_id.keys()))
 
+    @Slot(result="QVariantMap")
+    def manualResetTarget(self):
+        c = self._character()
+        if not c or not self.save_path:
+            return {}
+        return {"scope": self.store.character_scope(self.save_path, c),
+                "name": c.get("name", ""), "slot": c.get("slot", -1)}
+
+    @Slot(str, result=bool)
+    def resetCurrentManualMarks(self, expected_scope):
+        target = self.manualResetTarget()
+        if not target or target["scope"] != expected_scope:
+            self.toast.emit("当前角色已变化，请重新点击周目重置")
+            return False
+        try:
+            self.store.reset_manual_marks(self.save_path, self._character())
+        except Exception as exc:
+            self.toast.emit(f"周目重置失败，已保留原有记录：{exc}")
+            return False
+        self._save_generation += 1
+        self._recompute_character()
+        self.mapChanged.emit()
+        self.questsChanged.emit()
+        self.characterChanged.emit()
+        self.toast.emit("已清空当前角色的手动地图标记与任务勾选")
+        return True
+
     @Slot(str, str, bool)
     def setQuestStepChecked(self, qid, sid, value):
         c = self._character()

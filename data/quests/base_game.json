@@ -1405,19 +1405,13 @@
       "completeWhen": {
         "all": [
           {
-            "flag": 400073
+            "flag": 400076
           },
           {
-            "flag": 400074
+            "flag": 400077
           },
           {
-            "flag": 400075
-          },
-          {
-            "flag": 400180
-          },
-          {
-            "flag": 400290
+            "flag": 400078
           }
         ]
       },
@@ -1429,7 +1423,7 @@
             "zh": "加入火山官邸"
           },
           "completeWhen": {
-            "marker": "grace:160002"
+            "flag": 400072
           },
           "anchor": {
             "marker": "grace:160002"
@@ -1439,10 +1433,10 @@
           "id": "istvan",
           "title": {
             "en": "Complete the Old Knight Istvan contract",
-            "zh": "完成“老骑士”伊修托邦委托"
+            "zh": "完成“老骑士”伊修托邦委托，向塔妮丝领取熔岩球"
           },
           "completeWhen": {
-            "flag": 400073
+            "flag": 400076
           },
           "anchor": {
             "marker": "poi:81423900"
@@ -1452,36 +1446,23 @@
           "id": "rileigh",
           "title": {
             "en": "Complete the Rileigh the Idle contract",
-            "zh": "完成“闲散”帕坦委托"
+            "zh": "完成“闲散”帕坦委托，向塔妮丝领取蛇骨刀"
           },
           "completeWhen": {
-            "flag": 400074
+            "flag": 400077
           },
           "anchor": {
             "marker": "poi:83395300"
           }
         },
         {
-          "id": "juno",
-          "title": {
-            "en": "Complete the Juno Hoslow contract",
-            "zh": "完成“血言骑士”尤诺·霍斯劳委托"
-          },
-          "completeWhen": {
-            "flag": 400075
-          },
-          "anchor": {
-            "marker": "poi:85505600"
-          }
-        },
-        {
           "id": "tragoth",
           "title": {
             "en": "Finish Patches' Great Horned Tragoth request",
-            "zh": "完成帕奇的“大角”忒拉格斯委托"
+            "zh": "击败“大角”忒拉格斯，向帕奇领取熔岩烛台鞭"
           },
           "completeWhen": {
-            "flag": 400180
+            "flag": 400182
           },
           "anchor": {
             "marker": "poi:80392000"
@@ -1491,16 +1472,36 @@
         {
           "id": "vargram",
           "title": {
-            "en": "Finish Bernahl's Vargram request",
-            "zh": "完成贝纳尔的维克拉姆委托"
+            "en": "Finish Bernahl's Vargram and Wilhelm request",
+            "zh": "与贝纳尔击败“白狼战鬼”与维赫勒，领取格密尔之怒"
           },
           "completeWhen": {
-            "flag": 400290
+            "any": [
+              {
+                "flag": 400291
+              },
+              {
+                "flag": 400295
+              }
+            ]
           },
           "anchor": {
             "marker": "poi:80110000"
           },
           "optional": true
+        },
+        {
+          "id": "juno",
+          "title": {
+            "en": "Complete the Juno Hoslow contract",
+            "zh": "击败“血言骑士”尤诺·霍斯劳，向塔妮丝领取掠夺浮雕坠饰"
+          },
+          "completeWhen": {
+            "flag": 400078
+          },
+          "anchor": {
+            "marker": "poi:85505600"
+          }
         }
       ],
       "lockouts": [
@@ -1534,23 +1535,15 @@
           {
             "any": [
               {
-                "flag": 400073,
+                "flag": 400076,
                 "value": false
               },
               {
-                "flag": 400074,
+                "flag": 400077,
                 "value": false
               },
               {
-                "flag": 400075,
-                "value": false
-              },
-              {
-                "flag": 400180,
-                "value": false
-              },
-              {
-                "flag": 400290,
+                "flag": 400078,
                 "value": false
               }
             ]
@@ -2921,7 +2914,9 @@
           "anchor": {
             "marker": "grace:62394400"
           },
-          "guideOnly": true,
+          "completeWhen": {
+            "flag": 400460
+          },
           "reward": {
             "en": "Companion Jar",
             "zh": "友好壶"
@@ -2942,7 +2937,7 @@
         "flag": 11109406
       },
       "completeWhen": {
-        "flag": 400452
+        "flag": 400460
       }
     },
     {

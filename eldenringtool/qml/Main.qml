@@ -314,6 +314,30 @@ ApplicationWindow {
         onAccepted: if (rootLoader.item && rootLoader.item.setModPath) rootLoader.item.setModPath(selectedFolder)
     }
 
+    Dialog {
+        id: journeyResetDialog
+        objectName: "journeyResetDialog"
+        property var resetTarget: ({})
+        title: "确认周目重置"
+        modal: true
+        anchors.centerIn: parent
+        width: Math.min(460, win.width - 40)
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle { color: win.panel; radius: 12; border.color: win.borderStrong }
+        contentItem: Label {
+            text: "清空角色「" + (journeyResetDialog.resetTarget.name || "") + "」（槽位 "
+                + ((journeyResetDialog.resetTarget.slot || 0) + 1) + "）的全部手动地图标记和任务勾选？\n\n"
+                + "此操作无法撤销。其他角色、游戏存档和自动识别进度不受影响。"
+            wrapMode: Text.Wrap
+            color: win.textMain
+        }
+        footer: DialogButtonBox {
+            AppButton { objectName: "journeyResetCancel"; text: "取消"; DialogButtonBox.buttonRole: DialogButtonBox.RejectRole }
+            AppButton { objectName: "journeyResetConfirm"; text: "确认清空"; DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole }
+        }
+        onAccepted: backend.resetCurrentManualMarks(resetTarget.scope || "")
+    }
+
     Connections {
         target: backend
         function onScanLog(line) {
@@ -2162,6 +2186,15 @@ ApplicationWindow {
                             spacing: 9
                             AppButton { text: "手动选择存档文件"; onClicked: saveDialog.open() }
                             AppButton { text: "立即刷新存档"; onClicked: backend.refresh_save(true) }
+                            AppButton {
+                                objectName: "journeyResetButton"
+                                text: "周目重置"
+                                enabled: backend.activeSlot >= 0 && !!backend.currentSavePath
+                                onClicked: {
+                                    journeyResetDialog.resetTarget = backend.manualResetTarget()
+                                    if (journeyResetDialog.resetTarget.scope) journeyResetDialog.open()
+                                }
+                            }
                             AppButton {
                                 text: "导入旧版共享地图勾选"
                                 enabled: backend.activeSlot >= 0 && backend.legacyMarkerCount() > 0
